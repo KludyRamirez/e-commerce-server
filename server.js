@@ -21,7 +21,9 @@ mongoose
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
 // middlewares
-app.use(cors({ origin: "https://bananauyu.web.app", credentials: true }));
+app.use(
+  cors({ origin: "https://bananauyu.up.railway.app", credentials: true })
+);
 app.use(morgan("dev"));
 app.use(bodyParser.json({ limit: "2mb" }));
 
