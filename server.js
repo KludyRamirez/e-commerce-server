@@ -21,9 +21,9 @@ mongoose
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
 // middlewares
+app.use(cors({ origin: "*", credentials: true }));
 app.use(morgan("dev"));
 app.use(bodyParser.json({ limit: "2mb" }));
-app.use(cors({ origin: "*", credentials: true }));
 
 // routes middleware
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
