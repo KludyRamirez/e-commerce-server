@@ -22,7 +22,7 @@ mongoose
 
 // middlewares
 
-app.use(cors({ origin: "https://bananauyu.web.app", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 app.use(morgan("dev"));
 app.use(bodyParser.json({ limit: "2mb" }));
 
