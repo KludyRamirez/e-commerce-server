@@ -217,7 +217,7 @@ exports.createCashOrder = async (req, res) => {
       id: uniqid(),
       amount: finalAmount,
       currency: "usd",
-      status: "Cash On Delivery",
+      status: "Processing",
       created: Date.now(),
       payment_method_types: ["cash"],
     },
