@@ -79,7 +79,7 @@ exports.saveAddress = async (req, res) => {
     { email: req.user.email },
     { address: req.body.address },
     { city: req.body.city },
-    { state: req.body.state },
+    { province: req.body.province },
     { postalCode: req.body.postalCode },
     { country: req.body.country }
   ).exec();
