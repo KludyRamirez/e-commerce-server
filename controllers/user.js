@@ -84,7 +84,7 @@ exports.saveAddress = async (req, res) => {
     { country: req.body.country }
   ).exec();
 
-  res.json({ ok: true });
+  res.json({ userAddress });
 };
 
 exports.applyCouponToUserCart = async (req, res) => {
