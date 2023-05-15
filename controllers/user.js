@@ -80,7 +80,7 @@ exports.saveAddress = async (req, res) => {
     { address: req.body.address }
   ).exec();
 
-  res.json({ ok: true });
+  res.json({ addressuser: true });
 };
 
 exports.saveCity = async (req, res) => {
@@ -89,7 +89,7 @@ exports.saveCity = async (req, res) => {
     { city: req.body.city }
   ).exec();
 
-  res.json({ ok: true });
+  res.json({ cityuser: true });
 };
 
 exports.saveProvince = async (req, res) => {
@@ -98,7 +98,7 @@ exports.saveProvince = async (req, res) => {
     { province: req.body.province }
   ).exec();
 
-  res.json({ ok: true });
+  res.json({ provinceuser: true });
 };
 
 exports.savePostalCode = async (req, res) => {
@@ -107,7 +107,7 @@ exports.savePostalCode = async (req, res) => {
     { postalCode: req.body.postalCode }
   ).exec();
 
-  res.json({ ok: true });
+  res.json({ postalcodeuser: true });
 };
 
 exports.saveCountry = async (req, res) => {
@@ -116,7 +116,7 @@ exports.saveCountry = async (req, res) => {
     { country: req.body.country }
   ).exec();
 
-  res.json({ ok: true });
+  res.json({ countryuser: true });
 };
 
 exports.applyCouponToUserCart = async (req, res) => {
