@@ -74,6 +74,46 @@ exports.emptyCart = async (req, res) => {
   res.json(cart);
 };
 
+exports.getAddress = async (req, res) => {
+  const getaddress = await User.findOne({ email: req.user.email })
+    .select("address")
+    .populate("address")
+    .exec();
+  res.json(getaddress);
+};
+
+exports.getCity = async (req, res) => {
+  const getcity = await User.findOne({ email: req.user.email })
+    .select("city")
+    .populate("city")
+    .exec();
+  res.json(getcity);
+};
+
+exports.getProvince = async (req, res) => {
+  const getprovince = await User.findOne({ email: req.user.email })
+    .select("province")
+    .populate("province")
+    .exec();
+  res.json(getprovince);
+};
+
+exports.getPostalCode = async (req, res) => {
+  const getpostalcode = await User.findOne({ email: req.user.email })
+    .select("postalcode")
+    .populate("postalcode")
+    .exec();
+  res.json(getpostalcode);
+};
+
+exports.getCountry = async (req, res) => {
+  const getcountry = await User.findOne({ email: req.user.email })
+    .select("country")
+    .populate("country")
+    .exec();
+  res.json(getcountry);
+};
+
 exports.saveAddress = async (req, res) => {
   const userAddress = await User.findOneAndUpdate(
     { email: req.user.email },
