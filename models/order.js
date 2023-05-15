@@ -18,7 +18,7 @@ const orderSchema = new mongoose.Schema(
     orderStatus: {
       type: String,
       default: "Verifying",
-      enum: ["Verifying", "Processing", "Dispatched", "Completed"],
+      enum: ["Verifying", "Cancelled", "Processing", "Dispatched", "Completed"],
     },
     orderdBy: { type: ObjectId, ref: "User" },
   },
