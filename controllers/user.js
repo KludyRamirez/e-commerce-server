@@ -77,10 +77,42 @@ exports.emptyCart = async (req, res) => {
 exports.saveAddress = async (req, res) => {
   const userAddress = await User.findOneAndUpdate(
     { email: req.user.email },
-    { address: req.body.address },
-    { city: req.body.city },
-    { province: req.body.province },
-    { postalCode: req.body.postalCode },
+    { address: req.body.address }
+  ).exec();
+
+  res.json({ ok: true });
+};
+
+exports.saveCity = async (req, res) => {
+  const userCity = await User.findOneAndUpdate(
+    { email: req.user.email },
+    { city: req.body.city }
+  ).exec();
+
+  res.json({ ok: true });
+};
+
+exports.saveProvince = async (req, res) => {
+  const userProvince = await User.findOneAndUpdate(
+    { email: req.user.email },
+    { province: req.body.province }
+  ).exec();
+
+  res.json({ ok: true });
+};
+
+exports.savePostalCode = async (req, res) => {
+  const userPostalCode = await User.findOneAndUpdate(
+    { email: req.user.email },
+    { postalCode: req.body.postalCode }
+  ).exec();
+
+  res.json({ ok: true });
+};
+
+exports.saveCountry = async (req, res) => {
+  const userCountry = await User.findOneAndUpdate(
+    { email: req.user.email },
     { country: req.body.country }
   ).exec();
 
