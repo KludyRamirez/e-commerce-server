@@ -17,8 +17,8 @@ const orderSchema = new mongoose.Schema(
     paymentIntent: {},
     orderStatus: {
       type: String,
-      default: "Verifying",
-      enum: ["Verifying", "Cancelled", "Processing", "Dispatched", "Completed"],
+      default: "Processing",
+      enum: ["Processing", "Dispatched", "Completed"],
     },
     orderdBy: { type: ObjectId, ref: "User" },
   },
