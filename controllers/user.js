@@ -254,7 +254,7 @@ exports.createCashOrder = async (req, res) => {
       id: uniqid(),
       amount: finalAmount,
       currency: "PHP",
-      status: "Not Paid",
+      status: "Verifying",
       created: Date.now(),
       payment_method_types: ["cash"],
     },
