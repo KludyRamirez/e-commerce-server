@@ -254,12 +254,12 @@ exports.createCashOrder = async (req, res) => {
       id: uniqid(),
       amount: finalAmount,
       currency: "PHP",
-      status: "Processing",
+      status: "Verifying",
       created: Date.now(),
       payment_method_types: ["cash"],
     },
     orderdBy: user._id,
-    orderStatus: "Processing",
+    orderStatus: "Verifying",
   }).save();
 
   // decrement quantity, increment sold
