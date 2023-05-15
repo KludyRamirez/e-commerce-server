@@ -104,7 +104,7 @@ exports.saveProvince = async (req, res) => {
 exports.savePostalCode = async (req, res) => {
   const userPostalCode = await User.findOneAndUpdate(
     { email: req.user.email },
-    { postalCode: req.body.postalCode }
+    { postalcode: req.body.postalcode }
   ).exec();
 
   res.json({ postalcodeuser: true });
