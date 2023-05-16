@@ -203,7 +203,9 @@ exports.takeAddress = async (req, res) => {
   let addressUser = await User.findOne(
     { email: req.user.email },
     { address: req.body.address }
-  ).exec();
+  )
+    .populate("address")
+    .exec();
 
   res.json({ userAddress: true });
 };
