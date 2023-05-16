@@ -116,7 +116,7 @@ exports.saveContact = async (req, res) => {
     { country: req.body.contact }
   ).exec();
 
-  res.json({ countryuser: true });
+  res.json({ contactuser: true });
 };
 
 exports.applyCouponToUserCart = async (req, res) => {
