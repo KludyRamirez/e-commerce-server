@@ -75,45 +75,12 @@ exports.emptyCart = async (req, res) => {
 };
 
 exports.getAddress = async (req, res) => {
-  try {
-    const address = await User.find({ address: req.body.address });
-    res.json(address);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+  const address = await User.find({ address: req.body.address })
+    .populate("address")
+    .exec();
+
+  res.json({ getuseraddress: true });
 };
-
-// exports.getCity = async (req, res) => {
-//   const getcity = await User.findOne({ email: req.user.email })
-//     .select("city")
-//     .populate("city")
-//     .exec();
-//   res.json(getcity);
-// };
-
-// exports.getProvince = async (req, res) => {
-//   const getprovince = await User.findOne({ email: req.user.email })
-//     .select("province")
-//     .populate("province")
-//     .exec();
-//   res.json(getprovince);
-// };
-
-// exports.getPostalCode = async (req, res) => {
-//   const getpostalcode = await User.findOne({ email: req.user.email })
-//     .select("postalCode")
-//     .populate("postalCode")
-//     .exec();
-//   res.json(getpostalcode);
-// };
-
-// exports.getCountry = async (req, res) => {
-//   const getcountry = await User.findOne({ email: req.user.email })
-//     .select("country")
-//     .populate("country")
-//     .exec();
-//   res.json(getcountry);
-// };
 
 exports.saveAddress = async (req, res) => {
   const userAddress = await User.findOneAndUpdate(
