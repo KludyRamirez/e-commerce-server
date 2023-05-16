@@ -17,26 +17,26 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    // address: {
-    //   type: String,
-    //   required: false,
-    // },
-    // city: {
-    //   type: String,
-    //   required: false,
-    // },
-    // province: {
-    //   type: String,
-    //   required: false,
-    // },
-    // postalcode: {
-    //   type: String,
-    //   required: false,
-    // },
-    // country: {
-    //   type: String,
-    //   required: false,
-    // },
+    address: {
+      type: String,
+      required: false,
+    },
+    city: {
+      type: String,
+      required: false,
+    },
+    province: {
+      type: String,
+      required: false,
+    },
+    postalcode: {
+      type: String,
+      required: false,
+    },
+    contact: {
+      type: Number,
+      required: false,
+    },
     wishlist: [{ type: ObjectId, ref: "Product" }],
   },
   { timestamps: true }
