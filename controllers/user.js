@@ -74,6 +74,13 @@ exports.emptyCart = async (req, res) => {
   res.json(cart);
 };
 
+exports.claimAddress = async (req, res) => {
+  const userClaimAddress = await User.findOne({
+    address: req.body.address,
+  }).populate("address");
+  res.json({ claimUserAddress: true });
+};
+
 exports.saveAddress = async (req, res) => {
   const userAddress = await User.findOneAndUpdate(
     { email: req.user.email },
