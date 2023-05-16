@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema(
       required: false,
     },
     contact: {
-      type: Number,
+      type: String,
       required: false,
     },
     wishlist: [{ type: ObjectId, ref: "Product" }],
