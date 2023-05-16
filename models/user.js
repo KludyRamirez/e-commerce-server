@@ -19,18 +19,23 @@ const userSchema = new mongoose.Schema(
     },
     address: {
       type: String,
+      required: false,
     },
     city: {
       type: String,
+      required: false,
     },
     province: {
       type: String,
+      required: false,
     },
     postalcode: {
       type: String,
+      required: false,
     },
     country: {
       type: String,
+      required: false,
     },
     wishlist: [{ type: ObjectId, ref: "Product" }],
   },

@@ -75,11 +75,10 @@ exports.emptyCart = async (req, res) => {
 };
 
 exports.getAddress = async (req, res) => {
-  const address = await User.find({ address: req.body.address })
-    .populate("address")
-    .exec();
-
-  res.json({ getuseraddress: true });
+  const address = await User.findOne({ address: req.body.address }).populate(
+    "user.address"
+  );
+  res.json({ address });
 };
 
 exports.saveAddress = async (req, res) => {
