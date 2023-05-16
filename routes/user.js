@@ -33,7 +33,7 @@ router.post("/user/province", authCheck, saveProvince);
 router.post("/user/postalcode", authCheck, savePostalCode);
 router.post("/user/country", authCheck, saveCountry);
 
-router.get("/user/address", authCheck, getAddress);
+router.get("/user/address", getAddress);
 
 router.post("/user/order", authCheck, createOrder); // stripe
 router.post("/user/cash-order", authCheck, createCashOrder); // cod
