@@ -74,57 +74,57 @@ exports.emptyCart = async (req, res) => {
   res.json(cart);
 };
 
-exports.getAddress = async (req, res) => {
-  const address = await User.findOne({ address: req.body.address }).populate(
-    "user.address"
-  );
-  res.json({ address });
-};
+// exports.getAddress = async (req, res) => {
+//   const address = await User.findOne({ address: req.body.address }).populate(
+//     "user.address"
+//   );
+//   res.json({ address });
+// };
 
-exports.saveAddress = async (req, res) => {
-  const userAddress = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { address: req.body.address }
-  ).exec();
+// exports.saveAddress = async (req, res) => {
+//   const userAddress = await User.findOneAndUpdate(
+//     { email: req.user.email },
+//     { address: req.body.address }
+//   ).exec();
 
-  res.json({ addressuser: true });
-};
+//   res.json({ addressuser: true });
+// };
 
-exports.saveCity = async (req, res) => {
-  const userCity = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { city: req.body.city }
-  ).exec();
+// exports.saveCity = async (req, res) => {
+//   const userCity = await User.findOneAndUpdate(
+//     { email: req.user.email },
+//     { city: req.body.city }
+//   ).exec();
 
-  res.json({ cityuser: true });
-};
+//   res.json({ cityuser: true });
+// };
 
-exports.saveProvince = async (req, res) => {
-  const userProvince = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { province: req.body.province }
-  ).exec();
+// exports.saveProvince = async (req, res) => {
+//   const userProvince = await User.findOneAndUpdate(
+//     { email: req.user.email },
+//     { province: req.body.province }
+//   ).exec();
 
-  res.json({ provinceuser: true });
-};
+//   res.json({ provinceuser: true });
+// };
 
-exports.savePostalCode = async (req, res) => {
-  const userPostalCode = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { postalcode: req.body.postalcode }
-  ).exec();
+// exports.savePostalCode = async (req, res) => {
+//   const userPostalCode = await User.findOneAndUpdate(
+//     { email: req.user.email },
+//     { postalcode: req.body.postalcode }
+//   ).exec();
 
-  res.json({ postalcodeuser: true });
-};
+//   res.json({ postalcodeuser: true });
+// };
 
-exports.saveCountry = async (req, res) => {
-  const userCountry = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { country: req.body.country }
-  ).exec();
+// exports.saveCountry = async (req, res) => {
+//   const userCountry = await User.findOneAndUpdate(
+//     { email: req.user.email },
+//     { country: req.body.country }
+//   ).exec();
 
-  res.json({ countryuser: true });
-};
+//   res.json({ countryuser: true });
+// };
 
 exports.applyCouponToUserCart = async (req, res) => {
   const { coupon } = req.body;
@@ -262,7 +262,7 @@ exports.createCashOrder = async (req, res) => {
       amount: finalAmount,
       currency: "PHP",
       status: "Processing",
-      created: Date.now() / 1000,
+      created: new (Date.now() * 1000)(),
       payment_method_types: ["cash"],
     },
     orderdBy: user._id,
