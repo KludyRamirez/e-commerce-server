@@ -199,15 +199,37 @@ exports.orders = async (req, res) => {
   res.json(userOrders);
 };
 
-exports.takeAddress = async (req, res) => {
-  let addressUser = await User.find(
-    { email: req.user.email },
-    { address: req.body.address }
-  )
-    .populate("address")
-    .exec();
+// exports.takeAddress = async (req, res) => {
+//   let addressUser = await User.find(
+//     { email: req.user.email },
+//     { address: req.body.address }
+//   )
+//     .populate("address")
+//     .exec();
 
-  res.json({ addressUser });
+//   res.json({ addressUser });
+// };
+
+exports.takeAddress = async (req, res) => {
+  const { id } = req.params;
+  const { address } = req.body;
+  try {
+    if (await User.findOne({ _id: id })) {
+      await User.findOneAndUpdate(
+        { _id: id },
+        {
+          $set: {
+            "profileDetails.0.address": address,
+          },
+        }
+      );
+    } else {
+      return res.status(404).send("failed");
+    }
+    res.status(200).send("submitted");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // addToWishlist wishlist removeFromWishlist

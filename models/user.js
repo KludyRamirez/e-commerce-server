@@ -20,22 +20,27 @@ const userSchema = new mongoose.Schema(
     address: {
       type: String,
       required: false,
+      default: none,
     },
     city: {
       type: String,
       required: false,
+      default: none,
     },
     province: {
       type: String,
       required: false,
+      default: none,
     },
     postalcode: {
       type: String,
       required: false,
+      default: none,
     },
     contact: {
       type: String,
       required: false,
+      default: none,
     },
     wishlist: [{ type: ObjectId, ref: "Product" }],
   },
