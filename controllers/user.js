@@ -200,7 +200,7 @@ exports.orders = async (req, res) => {
 };
 
 exports.takeAddress = async (req, res) => {
-  let addressUser = await User.findOne(
+  let addressUser = await User.find(
     { email: req.user.email },
     { address: req.body.address }
   )
