@@ -100,8 +100,8 @@ exports.getProvince = async (req, res) => {
 
 exports.getPostalCode = async (req, res) => {
   const getpostalcode = await User.findOne({ email: req.user.email })
-    .select("postalcode")
-    .populate("postalcode")
+    .select("postalCode")
+    .populate("postalCode")
     .exec();
   res.json(getpostalcode);
 };
