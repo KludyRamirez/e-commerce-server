@@ -10,7 +10,7 @@ const {
   getUserCart,
   emptyCart,
   saveAddress,
-  claimAddress,
+  takeAddress,
   saveCity,
   saveProvince,
   savePostalCode,
@@ -28,7 +28,7 @@ router.post("/user/cart", authCheck, userCart); // save cart
 router.get("/user/cart", authCheck, getUserCart); // get cart
 router.delete("/user/cart", authCheck, emptyCart); // empty cart
 router.post("/user/address", authCheck, saveAddress); //mailing address
-router.get("/user/address", authCheck, claimAddress);
+router.post("/user/address", authCheck, takeAddress);
 router.post("/user/city", authCheck, saveCity);
 router.post("/user/province", authCheck, saveProvince);
 router.post("/user/postalcode", authCheck, savePostalCode);

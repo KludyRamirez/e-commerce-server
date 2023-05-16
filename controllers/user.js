@@ -74,13 +74,6 @@ exports.emptyCart = async (req, res) => {
   res.json(cart);
 };
 
-exports.claimAddress = async (req, res) => {
-  const userClaimAddress = await User.findOne({
-    address: req.body.address,
-  }).populate("address");
-  res.json({ claimUserAddress: true });
-};
-
 exports.saveAddress = async (req, res) => {
   const userAddress = await User.findOneAndUpdate(
     { email: req.user.email },
@@ -200,10 +193,19 @@ exports.orders = async (req, res) => {
 
   let userOrders = await Order.find({ orderdBy: user._id })
     .populate("products.product")
-    .populate("orderdBy", "name email address")
+    .populate("orderdBy", "name email address city province postalcode contact")
     .exec();
 
   res.json(userOrders);
+};
+
+exports.takeAddress = async (req, res) => {
+  let addressUser = await User.findOne(
+    { email: req.user.email },
+    { address: req.body.address }
+  ).exec();
+
+  res.json({ userAddress: true });
 };
 
 // addToWishlist wishlist removeFromWishlist
