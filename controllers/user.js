@@ -255,7 +255,7 @@ exports.createCashOrder = async (req, res) => {
       amount: finalAmount,
       currency: "PHP",
       status: "Processing",
-      created: new (Date.now() * 1000)(),
+      created: Date.now(),
       payment_method_types: ["cash"],
     },
     orderdBy: user._id,
