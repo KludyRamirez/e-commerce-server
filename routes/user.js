@@ -13,7 +13,7 @@ const {
   saveCity,
   saveProvince,
   savePostalCode,
-  saveNumber,
+  saveContact,
   applyCouponToUserCart,
   createOrder,
   orders,
