@@ -207,7 +207,7 @@ exports.takeAddress = async (req, res) => {
     .populate("address")
     .exec();
 
-  res.json({ userAddress: true });
+  res.json({ addressUser });
 };
 
 // addToWishlist wishlist removeFromWishlist
