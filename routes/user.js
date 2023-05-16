@@ -38,10 +38,6 @@ router.post("/user/postalcode", authCheck, savePostalCode);
 router.post("/user/country", authCheck, saveCountry);
 
 router.get("/user/address", authCheck, getAddress);
-router.get("/user/city", authCheck, getCity);
-router.get("/user/province", authCheck, getProvince);
-router.get("/user/postalcode", authCheck, getPostalCode);
-router.get("/user/country", authCheck, getCountry);
 
 router.post("/user/order", authCheck, createOrder); // stripe
 router.post("/user/cash-order", authCheck, createCashOrder); // cod
