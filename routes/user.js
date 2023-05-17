@@ -28,12 +28,12 @@ router.post("/user/cart", authCheck, userCart); // save cart
 router.get("/user/cart", authCheck, getUserCart); // get cart
 router.delete("/user/cart", authCheck, emptyCart); // empty cart
 
-router.post("/user/address", authCheck, saveAddress); //mailing address
-router.get("/user/address", authCheck, getAddress);
-router.post("/user/city", authCheck, saveCity);
-router.post("/user/province", authCheck, saveProvince);
-router.post("/user/postalcode", authCheck, savePostalCode);
-router.post("/user/contact", authCheck, saveContact);
+router.post("/user/address", saveAddress); //mailing address
+router.get("/user/address", getAddress);
+router.post("/user/city", saveCity);
+router.post("/user/province", saveProvince);
+router.post("/user/postalcode", savePostalCode);
+router.post("/user/contact", saveContact);
 
 router.post("/user/order", authCheck, createOrder); // stripe
 router.post("/user/cash-order", authCheck, createCashOrder); // cod
