@@ -183,10 +183,8 @@ exports.createOrder = async (req, res) => {
 
 exports.getAddress = async (req, res) => {
   try {
-    // Retrieve the user's address from the database
     const user = await User.findOne({ email: req.user.email }).exec();
     const address = user.address;
-
     res.json(address);
   } catch (error) {
     console.error("Error fetching user address:", error);
