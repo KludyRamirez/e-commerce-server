@@ -181,6 +181,19 @@ exports.createOrder = async (req, res) => {
   res.json({ ok: true });
 };
 
+exports.getAddress = async (req, res) => {
+  try {
+    // Retrieve the user's address from the database
+    const user = await User.findOne({ email: req.user.email }).exec();
+    const address = user.address;
+
+    res.json(address);
+  } catch (error) {
+    console.error("Error fetching user address:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 exports.orders = async (req, res) => {
   let user = await User.findOne({ email: req.user.email }).exec();
 
