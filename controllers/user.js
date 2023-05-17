@@ -75,46 +75,39 @@ exports.emptyCart = async (req, res) => {
 };
 
 exports.saveAddress = async (req, res) => {
-  const userAddress = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { address: req.body.address }
-  ).exec();
+  const userAddress = await User.findOneAndUpdate({
+    address: req.body.address,
+  }).exec();
 
   res.json({ addressuser: true });
 };
 
 exports.saveCity = async (req, res) => {
-  const userCity = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { city: req.body.city }
-  ).exec();
+  const userCity = await User.findOneAndUpdate({ city: req.body.city }).exec();
 
   res.json({ cityuser: true });
 };
 
 exports.saveProvince = async (req, res) => {
-  const userProvince = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { province: req.body.province }
-  ).exec();
+  const userProvince = await User.findOneAndUpdate({
+    province: req.body.province,
+  }).exec();
 
   res.json({ provinceuser: true });
 };
 
 exports.savePostalCode = async (req, res) => {
-  const userPostalCode = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { postalcode: req.body.postalcode }
-  ).exec();
+  const userPostalCode = await User.findOneAndUpdate({
+    postalcode: req.body.postalcode,
+  }).exec();
 
   res.json({ postalcodeuser: true });
 };
 
 exports.saveContact = async (req, res) => {
-  const userContact = await User.findOneAndUpdate(
-    { email: req.user.email },
-    { contact: req.body.contact }
-  ).exec();
+  const userContact = await User.findOneAndUpdate({
+    contact: req.body.contact,
+  }).exec();
 
   res.json({ contactuser: true });
 };
