@@ -113,7 +113,7 @@ exports.savePostalCode = async (req, res) => {
 exports.saveContact = async (req, res) => {
   const userContact = await User.findOneAndUpdate(
     { email: req.user.email },
-    { contact: req.body.contact }
+    { country: req.body.contact }
   ).exec();
 
   res.json({ contactuser: true });
